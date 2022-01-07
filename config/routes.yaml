@@ -1,7 +1,11 @@
 controllers:
-    resource: ../src/Controller/
+    resource: ../src/App/src/Controller/
     type: annotation
 
 kernel:
-    resource: ../src/Kernel.php
+    resource: ../src/App/src/Kernel.php
     type: annotation
+
+app_health_check:
+    resource: App\Controller\HealthCheckController
+    prefix: /app/health-check/

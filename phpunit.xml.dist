@@ -5,7 +5,7 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="src/App/Tests/bootstrap.php"
          convertDeprecationsToExceptions="false"
 >
     <php>
@@ -25,7 +25,7 @@
 
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">src/App/src</directory>
         </include>
     </coverage>
 
