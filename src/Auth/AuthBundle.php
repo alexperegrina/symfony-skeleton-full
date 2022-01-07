@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Core;
+namespace Auth;
 
-use Core\DependencyInjection\CoreExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Security\DependencyInjection\AuthExtension;
 
-class CoreBundle extends Bundle
+class AuthBundle extends Bundle
 {
     protected function getContainerExtensionClass(): string
     {
-        return CoreExtension::class;
+        return AuthExtension::class;
     }
 }

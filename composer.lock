@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d415c11a7ae913a0231439cdcb0bfe1",
+    "content-hash": "a645745c8dc9fa19fa7a35ff7ea55bcb",
     "packages": [
+        {
+            "name": "auth/auth",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/Auth",
+                "reference": "fd46452fe2a66ce3ad979a2cc7c9d90c916506c1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Auth\\": "./"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Auth\\Tests\\": "Tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alex Peregrina",
+                    "email": "alexperegrina@gmail.com"
+                }
+            ],
+            "description": "Auth",
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.4",
@@ -9701,6 +9731,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "auth/auth": 20,
         "core/core": 20
     },
     "prefer-stable": true,

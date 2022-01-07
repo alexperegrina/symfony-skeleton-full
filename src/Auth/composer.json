@@ -1,0 +1,22 @@
+{
+    "name": "auth/auth",
+    "description": "Auth",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Alex Peregrina",
+            "email": "alexperegrina@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Auth\\": "./"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Auth\\Tests\\": "Tests/"
+        }
+    },
+    "require": {}
+}
