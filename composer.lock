@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a645745c8dc9fa19fa7a35ff7ea55bcb",
+    "content-hash": "4ed544183a37ab33c5c492c24fc15824",
     "packages": [
         {
             "name": "auth/auth",
@@ -9729,7 +9729,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "auth/auth": 20,
         "core/core": 20
