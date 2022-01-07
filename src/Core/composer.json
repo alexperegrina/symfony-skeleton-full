@@ -1,0 +1,22 @@
+{
+    "name": "core/core",
+    "description": "Core",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Alex Peregrina",
+            "email": "alexperegrina@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "./"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Core\\Tests\\": "Tests/"
+        }
+    },
+    "require": {}
+}

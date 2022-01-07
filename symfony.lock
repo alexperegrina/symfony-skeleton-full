@@ -2,6 +2,9 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "core/core": {
+        "version": "dev-main"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {

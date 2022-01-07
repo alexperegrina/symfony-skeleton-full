@@ -1,0 +1,67 @@
+imports:
+  - { resource: parameters.yaml }
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  # --- CONTROLLER
+  # ---
+  Core\Interfaces\Controller\:
+    resource: '../../src/Interfaces/Controller/*'
+
+  # --- CLI
+  # ---
+  Core\Interfaces\Cli\:
+    resource: '../../src/Interfaces/Cli/*Command.php'
+    tags: [ 'console.command' ]
+
+#  _instanceof:
+#    Core\Domain\Messenger\Handler\CommandHandler:
+#      tags:
+#        - { name: messenger.message_handler, bus: command.bus }
+#
+#    Core\Domain\Messenger\Handler\QueryHandler:
+#      tags:
+#        - { name: messenger.message_handler, bus: query.bus }
+#
+#    Core\Domain\Messenger\Handler\EventHandler:
+#      tags:
+#        - { name: messenger.message_handler, bus: event.bus }
+
+  # --- QUERY BUS
+  # ---
+  Core\Application\Query\:
+    resource: '../../src/Application/Query/*/*'
+    exclude:
+      - '../../src/Application/Query/*/*Query.php'
+
+  # --- COMMAND BUS
+  # ---
+  Core\Application\Command\:
+    resource: '../../src/Application/Command/*/*'
+    exclude:
+      - '../../src/Application/Command/*/*Command.php'
+
+  # --- EVENT BUS
+  # ---
+  Core\Application\Event\:
+    resource: '../../src/Application/Event/*/*'
+    exclude:
+      - '../../src/Application/Event/*/*Event.php'
+
+  # --- FIXTURES
+  # ---
+  Core\DataFixtures\:
+    resource: '../../DataFixtures/*'
+    tags: ['doctrine.fixture.orm']
+
+  # --- REPOSITORY
+  # ---
+
+  # --- DOCTRINE REPOSITORY
+  # ---
+  Core\Infrastructure\Repository\Doctrine\:
+    resource: '../../src/Infrastructure/Repository/Doctrine/*'
+    tags: ['doctrine.repository_service']

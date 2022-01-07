@@ -8,4 +8,8 @@ kernel:
 
 app_health_check:
     resource: App\Controller\HealthCheckController
-    prefix: /app/health-check/
+    prefix: /api/app/health-check/
+
+core:
+    resource: '@CoreBundle/Resources/config/routes.yaml'
+    prefix: /api/core/

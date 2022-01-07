@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e27f9d63f53a45876ce36f093e35153c",
+    "content-hash": "2d415c11a7ae913a0231439cdcb0bfe1",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -78,6 +78,36 @@
                 }
             ],
             "time": "2021-09-13T08:41:34+00:00"
+        },
+        {
+            "name": "core/core",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/Core",
+                "reference": "ae642f25459d3e300e5df5426fe3901be8c3f40b"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Core\\": "./"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Core\\Tests\\": "Tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alex Peregrina",
+                    "email": "alexperegrina@gmail.com"
+                }
+            ],
+            "description": "Core",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "doctrine/annotations",
@@ -9670,7 +9700,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "core/core": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

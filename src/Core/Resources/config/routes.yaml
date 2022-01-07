@@ -1,0 +1,3 @@
+core_health_check:
+  resource: Core\Interfaces\Controller\HealthCheckController
+  prefix: /health-check/
