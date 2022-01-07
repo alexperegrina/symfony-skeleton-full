@@ -15,3 +15,13 @@ doctrine:
                 dir: '%kernel.project_dir%/src/App/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+            CoreBundle:
+                is_bundle: true
+                type: yml
+                dir: 'Resources/config/doctrine'
+                prefix: 'Core\Domain\Entity'
+            AuthBundle:
+                is_bundle: true
+                type: yml
+                dir: 'Resources/config/doctrine'
+                prefix: 'Auth\Domain\Entity'
