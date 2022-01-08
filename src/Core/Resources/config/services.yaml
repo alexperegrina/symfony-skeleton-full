@@ -17,18 +17,33 @@ services:
     resource: '../../src/Interfaces/Cli/*Command.php'
     tags: [ 'console.command' ]
 
-#  _instanceof:
-#    Core\Domain\Messenger\Handler\CommandHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: command.bus }
-#
-#    Core\Domain\Messenger\Handler\QueryHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: query.bus }
-#
-#    Core\Domain\Messenger\Handler\EventHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: event.bus }
+  _instanceof:
+    Core\Domain\Messenger\Handler\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+
+    Core\Domain\Messenger\Handler\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+
+    Core\Domain\Messenger\Handler\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }
+
+  # --- BUS
+  # ---
+  Core\Infrastructure\Messenger\Bus\:
+    resource: '../../src/Infrastructure/Messenger/Bus/*'
+
+  Core\Domain\Messenger\Bus\CommandBus:
+    class: Core\Infrastructure\Messenger\Bus\SymfonyCommandBus
+    arguments:
+      - '@command.bus'
+
+  Core\Domain\Messenger\Bus\QueryBus:
+    class: Core\Infrastructure\Messenger\Bus\SymfonyQueryBus
+    arguments:
+      - '@query.bus'
 
   # --- QUERY BUS
   # ---
