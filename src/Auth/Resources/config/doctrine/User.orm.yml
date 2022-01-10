@@ -1,0 +1,19 @@
+Auth\Domain\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: Auth\Infrastructure\Repository\Doctrine\DoctrineUserRepository
+
+    id:
+        id:
+            type: Uuid
+
+    fields:
+        email:
+            type: string
+            length: 128
+            unique: true
+        roles:
+            type: json
+        password:
+            type: string
+
