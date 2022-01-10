@@ -10,9 +10,13 @@ app_health_check:
     resource: App\Controller\HealthCheckController
     prefix: /api/app/health-check/
 
-core:
-    resource: '@CoreBundle/Resources/config/routes.yaml'
+core-api:
+    resource: '@CoreBundle/Resources/config/routes-api.yaml'
     prefix: /api/core/
+
+core-web:
+    resource: '@CoreBundle/Resources/config/routes-web.yaml'
+    prefix: /web/core/
 
 auth:
     resource: '@AuthBundle/Resources/config/routes.yaml'

@@ -1,0 +1,3 @@
+core_web:
+  resource: Core\Interfaces\Controller\WebController
+  prefix: /
