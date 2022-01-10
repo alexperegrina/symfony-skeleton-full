@@ -1,0 +1,121 @@
+---
+
+- name: Update package cache
+  package:
+    update_cache: yes
+  when: ansible_os_family != 'Darwin'
+
+- name: Install zsh, git, wget
+  package:
+    name:
+      - zsh
+      - git
+      - wget
+    state: present
+  # brew don't work from root user on macOS
+  when: not (zsh_user == 'root' and ansible_os_family == 'Darwin')
+
+- name: Install prince
+  apt:
+    deb: https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
+
+#- name: Cloning fzf
+#  git:
+#    repo: https://github.com/junegunn/fzf.git
+#    dest: ~/.fzf
+#    depth: 1
+#  become: yes
+#  become_user: "{{ zsh_user }}"
+#
+#- name: install fzf
+#  command: "/bin/zsh -c 'source {{ zsh_config }}; antigen update'"
+#  become: yes
+#  become_user: "{{ zsh_user }}"
+#  changed_when: false
+#  failed_when: false
+
+- name: Check if .oh-my-zsh exists
+  stat:
+    path: ~/.oh-my-zsh
+  become: yes
+  become_user: "{{ zsh_user }}"
+  register: stat_oh_my_zsh_result
+
+- name: Cloning oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: ~/.oh-my-zsh
+  become: yes
+  become_user: "{{ zsh_user }}"
+  when: not stat_oh_my_zsh_result.stat.exists
+
+- name: Cloning powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+    depth: 1
+  become: yes
+  become_user: "{{ zsh_user }}"
+
+- name: Clone antigen {{ zsh_antigen_version }}
+  git:
+    repo: https://github.com/zsh-users/antigen.git
+    dest: "{{ zsh_antigen_path }}/antigen"
+    version: "{{ zsh_antigen_version }}"
+    force: yes
+  become: yes
+  become_user: "{{ zsh_user }}"
+  register: zsh_register_antigen_clone
+
+- name: Clone iwfmp/mc-solarized-skin
+  git:
+    repo: https://github.com/iwfmp/mc-solarized-skin.git
+    version: master
+    dest: "~{{ zsh_user }}/.mc/lib/mc-solarized"
+    force: yes
+  become: yes
+  become_user: "{{ zsh_user }}"
+  when: zsh_mc_solarized_skin and not zsh_shared
+
+- name: Check fzf installed
+  command: which fzf
+  changed_when: false
+  failed_when: false
+  check_mode: no
+  register: zsh_register_fzf_command
+
+- name: Set zsh_fzf_path to /usr/local/bin
+  set_fact:
+    zsh_fzf_path: /usr/local/bin
+  changed_when: false
+  when: zsh_shared
+
+- name: Set zsh_fzf_path_absolute
+  set_fact:
+    zsh_fzf_path_absolute: "{{ zsh_fzf_path | replace('$HOME', '~' + zsh_user) }}"
+  changed_when: false
+
+- name: Ensure users home binary folder is present
+  file:
+    path: "{{ zsh_fzf_path_absolute }}"
+    owner: "{{ zsh_user }}"
+    group: "{{ zsh_user_group }}"
+    mode: u=rwx,g=rwx,o=rx
+    state: directory
+  when: not zsh_shared
+
+- name: "Download fzf to {{ zsh_fzf_path_absolute }}"
+  unarchive:
+    src: "{{ zsh_fzf_url }}"
+    dest: "{{ zsh_fzf_path_absolute }}"
+    remote_src: yes
+    creates: "{{ zsh_fzf_path_absolute }}/fzf"
+  when: zsh_register_fzf_command.rc == 1
+
+- name: Set directory permissions
+  file:
+    name: "{{ zsh_antigen_path }}"
+    owner: "{{ zsh_user }}"
+    group: "{{ zsh_user_group }}"
+    recurse: yes
+  changed_when: false

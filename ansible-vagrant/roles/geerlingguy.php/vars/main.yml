@@ -1,0 +1,16 @@
+---
+php_packages_state: latest
+php_date_timezone: "UTC"
+php_display_errors: "On"
+php_packages_extra:
+  - php{{ php_version | default(php_default_version_debian) }}-bcmath
+  - php{{ php_version | default(php_default_version_debian) }}-soap
+  - php{{ php_version | default(php_default_version_debian) }}-zip
+  - php-amqplib
+
+
+php_upload_max_filesize: "32M"
+php_post_max_size: "48M"
+php_max_execution_time: "600"
+php_max_input_vars: "3000"
+php_max_input_time: "1000"

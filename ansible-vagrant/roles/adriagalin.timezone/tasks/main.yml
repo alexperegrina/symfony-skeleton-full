@@ -1,0 +1,10 @@
+---
+# tasks file for adriagalin.timezone
+- import_tasks: install.yml
+  tags: [ common, timezone ]
+
+- import_tasks: timezone.yml
+  tags: [ common, timezone ]
+  
+- import_tasks: localtime.yml
+  tags: [ common, timezone, localtime ]

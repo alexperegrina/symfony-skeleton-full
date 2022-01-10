@@ -1,0 +1,12 @@
+---
+# tasks file for adriagalin.timezone
+- name: timezone | set /etc/localtime
+  file:
+    src: /usr/share/zoneinfo/{{ ag_timezone }}
+    dest: /etc/localtime
+    state: link
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+  tags: [common, timezone]

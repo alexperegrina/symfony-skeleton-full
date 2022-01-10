@@ -1,0 +1,6 @@
+---
+- name: Deploy
+  hosts: services
+#  become: yes
+  roles:
+    - ansistrano.deploy

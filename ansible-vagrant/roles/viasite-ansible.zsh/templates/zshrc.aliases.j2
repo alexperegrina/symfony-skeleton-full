@@ -1,0 +1,9 @@
+# aliases
+{% for alias in zsh_aliases %}
+{% if alias.alias != '' and (alias.bundle is not defined or alias.bundle in bundles_enabled) %}
+alias '{{ alias.alias }}'="{{ alias.action }}"
+{% endif %}
+{% endfor %}
+
+
+alias suser='su -'

@@ -1,0 +1,6 @@
+---
+- name: Rollback
+  hosts: services
+  become: yes
+  roles:
+    - ansistrano.rollback

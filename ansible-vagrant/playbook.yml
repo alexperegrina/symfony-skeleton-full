@@ -1,0 +1,20 @@
+---
+
+- hosts: services
+  become: yes
+  roles:
+    - adriagalin.timezone
+    - geerlingguy.pip
+    - { role: viasite-ansible.zsh, zsh_user: root }
+    - { role: viasite-ansible.zsh, zsh_user: vagrant }
+    - geerlingguy.mysql
+    - geerlingguy.nginx
+    - geerlingguy.redis
+    - geerlingguy.php-versions
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.php-redis
+    - geerlingguy.php-xdebug
+    - geerlingguy.composer
+#    - geerlingguy.rabbitmq
+    - geerlingguy.nodejs
