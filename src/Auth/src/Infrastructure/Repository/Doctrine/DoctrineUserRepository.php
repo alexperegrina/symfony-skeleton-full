@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Auth\Infrastructure\Repository\Doctrine;
 
 use AlexPeregrina\ValueObject\Domain\Identity\Uuid;
+use Core\Domain\Exception\EntityDuplicateException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,12 +48,12 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
      */
     public function save(User $user): void
     {
-//        try {
+        try {
             $this->_em->persist($user);
             $this->_em->flush();
-//        } catch (UniqueConstraintViolationException $e) {
-//            throw new EntityDuplicateException(User::class);
-//        }
+        } catch (UniqueConstraintViolationException $e) {
+            throw new EntityDuplicateException(User::class);
+        }
     }
 
     public function delete(User $user): void

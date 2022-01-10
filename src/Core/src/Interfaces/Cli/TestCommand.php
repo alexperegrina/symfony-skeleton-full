@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Core\Interfaces\Cli;
 
+use Auth\Application\Command\CreateUser\CreateUserCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -39,6 +40,11 @@ class TestCommand extends Command
 
     protected function action()
     {
-
+        $command = CreateUserCommand::make(
+            'd398a9b5-cb0d-450d-8e8e-0692a81aa951',
+            'alexperegrina@gmail.com',
+            'root'
+        );
+        $this->commandBus->dispatch($command);
     }
 }

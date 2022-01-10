@@ -6,6 +6,19 @@ services:
     autowire: true
     autoconfigure: true
 
+  _instanceof:
+    Core\Domain\Messenger\Handler\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+
+    Core\Domain\Messenger\Handler\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+
+    Core\Domain\Messenger\Handler\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }
+
   # --- CONTROLLER
   # ---
   Auth\Interfaces\Controller\:
@@ -16,19 +29,6 @@ services:
   Auth\Interfaces\Cli\:
     resource: '../../src/Interfaces/Cli/*Command.php'
     tags: [ 'console.command' ]
-
-#  _instanceof:
-#    Auth\Domain\Messenger\Handler\CommandHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: command.bus }
-#
-#    Auth\Domain\Messenger\Handler\QueryHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: query.bus }
-#
-#    Auth\Domain\Messenger\Handler\EventHandler:
-#      tags:
-#        - { name: messenger.message_handler, bus: event.bus }
 
   # --- QUERY BUS
   # ---
@@ -59,6 +59,8 @@ services:
 
   # --- REPOSITORY
   # ---
+  Auth\Domain\Repository\UserRepository:
+    class: Auth\Infrastructure\Repository\Doctrine\DoctrineUserRepository
 
   # --- DOCTRINE REPOSITORY
   # ---

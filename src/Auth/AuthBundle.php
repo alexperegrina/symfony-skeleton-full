@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Auth;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Security\DependencyInjection\AuthExtension;
+use Auth\DependencyInjection\AuthExtension;
 
 class AuthBundle extends Bundle
 {
