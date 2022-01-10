@@ -16,6 +16,8 @@ Auth\Domain\Entity\User:
             type: json
         password:
             type: string
+        isVerified:
+            type: boolean
 
         createdAt:
             type: datetime

@@ -18,6 +18,10 @@ core-web:
     resource: '@CoreBundle/Resources/config/routes-web.yaml'
     prefix: /web/core/
 
-auth:
-    resource: '@AuthBundle/Resources/config/routes.yaml'
+auth-api:
+    resource: '@AuthBundle/Resources/config/routes-api.yaml'
     prefix: /api/auth/
+
+auth-web:
+    resource: '@AuthBundle/Resources/config/routes-web.yaml'
+    prefix: /web/auth/

@@ -67,3 +67,8 @@ services:
   Auth\Infrastructure\Repository\Doctrine\:
     resource: '../../src/Infrastructure/Repository/Doctrine/*'
     tags: ['doctrine.repository_service']
+
+  # --- SECURITY
+  # ---
+  Auth\Infrastructure\Security\:
+    resource: '../../src/Infrastructure/Security/*'

@@ -1,0 +1,3 @@
+auth_web_register:
+  resource: Auth\Interfaces\Controller\RegistrationController
+  prefix: /register/
