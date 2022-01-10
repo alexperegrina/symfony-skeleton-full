@@ -22,6 +22,8 @@
         "ext-iconv": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "alexperegrina/response": "dev-master",
+        "alexperegrina/value-object": "dev-master",
         "auth/auth": "@dev",
         "composer/package-versions-deprecated": "1.11.99.4",
         "core/core": "@dev",

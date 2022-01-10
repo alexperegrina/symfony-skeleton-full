@@ -1,3 +1,7 @@
 core_health_check:
   resource: Core\Interfaces\Controller\HealthCheckController
   prefix: /health-check/
+
+core_api:
+  resource: Core\Interfaces\Controller\ApiController
+  prefix: /

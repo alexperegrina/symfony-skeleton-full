@@ -6,6 +6,12 @@ services:
     autowire: true
     autoconfigure: true
 
+  # --- NORMALIZE
+  # ---
+  Core\Normalize:
+    class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
+    tags: [ serializer.normalizer ]
+
   # --- CONTROLLER
   # ---
   Core\Interfaces\Controller\:

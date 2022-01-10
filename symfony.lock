@@ -1,6 +1,30 @@
 {
+    "alexperegrina/geotools": {
+        "version": "0.7-dev"
+    },
+    "alexperegrina/response": {
+        "version": "dev-master"
+    },
+    "alexperegrina/value-object": {
+        "version": "dev-master"
+    },
     "auth/auth": {
         "version": "dev-main"
+    },
+    "brick/math": {
+        "version": "0.9.3"
+    },
+    "cache/adapter-common": {
+        "version": "1.1-dev"
+    },
+    "cache/array-adapter": {
+        "version": "1.1-dev"
+    },
+    "cache/hierarchical-cache": {
+        "version": "1.1-dev"
+    },
+    "cache/tag-interop": {
+        "version": "1.1.0"
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
@@ -106,6 +130,12 @@
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
+    "marc-mabe/php-enum": {
+        "version": "v4.6.0"
+    },
+    "moneyphp/money": {
+        "version": "v4.0.3"
+    },
     "monolog/monolog": {
         "version": "2.3.5"
     },
@@ -120,6 +150,9 @@
     },
     "phar-io/version": {
         "version": "3.1.0"
+    },
+    "php-http/discovery": {
+        "version": "1.14.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -189,8 +222,23 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "psr/simple-cache": {
+        "version": "1.0.1"
+    },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
+    },
+    "ramsey/collection": {
+        "version": "1.2.2"
+    },
+    "ramsey/uuid": {
+        "version": "4.2.3"
+    },
+    "react/event-loop": {
+        "version": "v1.2.0"
+    },
+    "react/promise": {
+        "version": "v2.8.0"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
@@ -624,5 +672,8 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "willdurand/geocoder": {
+        "version": "4.5.0"
     }
 }
