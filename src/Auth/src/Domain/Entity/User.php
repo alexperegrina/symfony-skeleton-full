@@ -4,11 +4,16 @@ declare(strict_types=1);
 namespace Auth\Domain\Entity;
 
 use AlexPeregrina\ValueObject\Domain\Identity\Uuid;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    use TimestampableEntity;
+    use SoftDeleteableEntity;
+
     private array $roles = [];
 
     public function __construct(
