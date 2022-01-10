@@ -142,6 +142,12 @@
     "myclabs/deep-copy": {
         "version": "1.10.2"
     },
+    "nette/php-generator": {
+        "version": "v3.6.5"
+    },
+    "nette/utils": {
+        "version": "v3.2.6"
+    },
     "nikic/php-parser": {
         "version": "v4.13.2"
     },

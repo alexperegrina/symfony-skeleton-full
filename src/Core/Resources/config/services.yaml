@@ -23,6 +23,9 @@ services:
     resource: '../../src/Interfaces/Cli/*Command.php'
     tags: [ 'console.command' ]
 
+  Core\Interfaces\Cli\GenerateCQS\GenerateCQSCommand:
+    tags: [ 'console.command' ]
+
   _instanceof:
     Core\Domain\Messenger\Handler\CommandHandler:
       tags:
