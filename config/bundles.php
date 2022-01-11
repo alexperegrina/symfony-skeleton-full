@@ -19,4 +19,6 @@ return [
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     Gesdinet\JWTRefreshTokenBundle\GesdinetJWTRefreshTokenBundle::class => ['all' => true],
     Example\ExampleBundle::class => ['all' => true],
+    Landing\LandingBundle::class => ['all' => true],
+    Admin\AdminBundle::class => ['all' => true],
 ];

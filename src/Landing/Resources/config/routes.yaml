@@ -1,0 +1,3 @@
+landing_health_check:
+  resource: Landing\Interfaces\Controller\HealthCheckController
+  prefix: /health-check/

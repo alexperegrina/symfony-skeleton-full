@@ -1,6 +1,6 @@
 {
-    "name": "example/example",
-    "description": "Example bundle",
+    "name": "landing/landing",
+    "description": "Landing bundle",
     "type": "symfony-bundle",
     "authors": [
         {
@@ -10,12 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Example\\": "./"
+            "Landing\\": "./"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Example\\Tests\\": "Tests/"
+            "Landing\\Tests\\": "Tests/"
         }
     },
     "require": {}

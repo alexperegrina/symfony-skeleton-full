@@ -1,4 +1,7 @@
 {
+    "admin/admin": {
+        "version": "dev-main"
+    },
     "alexperegrina/geotools": {
         "version": "0.7-dev"
     },
@@ -141,6 +144,9 @@
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
+    },
+    "landing/landing": {
+        "version": "dev-main"
     },
     "lcobucci/clock": {
         "version": "2.1.0"

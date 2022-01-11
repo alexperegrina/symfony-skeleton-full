@@ -22,6 +22,7 @@
         "ext-iconv": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "admin/admin": "@dev",
         "alexperegrina/response": "dev-master",
         "alexperegrina/value-object": "dev-master",
         "auth/auth": "@dev",
@@ -34,6 +35,7 @@
         "example/example": "@dev",
         "gesdinet/jwt-refresh-token-bundle": "dev-master",
         "guzzlehttp/guzzle": "^7.4",
+        "landing/landing": "@dev",
         "lexik/jwt-authentication-bundle": "^2.14",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.2",
@@ -96,18 +98,22 @@
     },
     "autoload": {
         "psr-4": {
+            "Example\\": "src/Example/src/",
             "App\\": "src/App/src/",
             "Core\\": "src/Core/src/",
             "Auth\\": "src/Auth/src/",
-            "Example\\": "src/Example/src/"
+            "Landing\\": "src/Landing/src/",
+            "Admin\\": "src/Admin/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "Example\\Tests\\": "src/Example/Tests/",
             "App\\Tests\\": "src/App/Tests/",
             "Core\\Tests\\": "src/Core/Tests/",
             "Auth\\Tests\\": "src/Auth/Tests/",
-            "Example\\Tests\\": "src/Example/Tests/"
+            "Landing\\Tests\\": "src/Landing/Tests/",
+            "Admin\\Tests\\": "src/Admin/Tests/"
         }
     },
     "replace": {

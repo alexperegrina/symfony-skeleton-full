@@ -29,3 +29,11 @@ auth-api:
 auth-web:
     resource: '@AuthBundle/Resources/config/routes-web.yaml'
     prefix: /web/auth/
+
+landing:
+    resource: '@LandingBundle/Resources/config/routes.yaml'
+    prefix: /landing/
+
+admin:
+    resource: '@AdminBundle/Resources/config/routes.yaml'
+    prefix: /admin/

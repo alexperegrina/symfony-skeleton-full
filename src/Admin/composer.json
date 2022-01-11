@@ -1,6 +1,6 @@
 {
-    "name": "example/example",
-    "description": "Example bundle",
+    "name": "admin/admin",
+    "description": "Admin bundle",
     "type": "symfony-bundle",
     "authors": [
         {
@@ -10,12 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Example\\": "./"
+            "Admin\\": "./"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Example\\Tests\\": "Tests/"
+            "Admin\\Tests\\": "Tests/"
         }
     },
     "require": {}
