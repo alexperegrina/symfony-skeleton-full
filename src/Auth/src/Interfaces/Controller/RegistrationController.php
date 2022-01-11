@@ -17,7 +17,7 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends ApiRestController
 {
-    #[Route('/', name: 'auth_register')]
+    #[Route('/', name: 'auth_web_register')]
     public function register(Request $request): Response
     {
         $form = $this->createForm(RegistrationFormType::class);
@@ -42,13 +42,13 @@ class RegistrationController extends ApiRestController
         ]);
     }
 
-    #[Route('/verify/email', name: 'auth_verify_email')]
+    #[Route('/verify/email', name: 'auth_web_verify_email')]
     public function verifyUserEmail(Request $request): Response
     {
         $id = $request->get('id');
 
         if (null === $id) {
-            return $this->redirectToRoute('auth_register');
+            return $this->redirectToRoute('auth_web_register');
         }
 
         try {
@@ -57,7 +57,7 @@ class RegistrationController extends ApiRestController
         } catch (EntityNotFoundByIdException|VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
-            return $this->redirectToRoute('auth_register');
+            return $this->redirectToRoute('auth_web_register');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates

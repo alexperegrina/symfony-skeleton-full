@@ -16,7 +16,7 @@ use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 class SendEmailConfirmationService
 {
-    const VERIFY_EMAIL_ROUTE_NAME = 'auth_verify_email';
+    const VERIFY_EMAIL_ROUTE_NAME = 'auth_web_verify_email';
 
     public function __construct(
         private UserRepository $userRepository,
