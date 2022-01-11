@@ -5,3 +5,6 @@ auth_health_check:
 auth_api_login:
   resource: Auth\Interfaces\Controller\ApiLoginController
   prefix: /login/
+
+auth_api_token_refresh:
+  path: /token/refresh
