@@ -1,3 +1,7 @@
 auth_health_check:
   resource: Auth\Interfaces\Controller\HealthCheckController
   prefix: /health-check/
+
+auth_api_login:
+  resource: Auth\Interfaces\Controller\ApiLoginController
+  prefix: /login/

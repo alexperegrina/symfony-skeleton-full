@@ -25,6 +25,10 @@ security:
                 # "login" is the name of the route created previously
                 login_path: auth_web_login
                 check_path: auth_web_login
+            json_login:
+                # api_login is a route we will create below
+                check_path: auth_api_login_json
+#                login_path: auth_api_login_json
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
