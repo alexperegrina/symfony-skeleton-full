@@ -68,7 +68,9 @@ services:
     resource: '../../src/Infrastructure/Repository/Doctrine/*'
     tags: ['doctrine.repository_service']
 
-  # --- SECURITY
+  # --- EVENT LISTENER
   # ---
-  Auth\Infrastructure\Security\:
-    resource: '../../src/Infrastructure/Security/*'
+  Auth\Infrastructure\EventListener\AuthenticationSuccessListener:
+    class: Auth\Infrastructure\EventListener\AuthenticationSuccessListener
+    tags:
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
