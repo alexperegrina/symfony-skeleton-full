@@ -1,5 +1,5 @@
 auth_web_register:
-  resource: Auth\Interfaces\Controller\RegistrationController
+  resource: Auth\Interfaces\Controller\WebRegistrationController
   prefix: /register/
 
 auth_web_login:

@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
-class RegistrationController extends ApiRestController
+class WebRegistrationController extends ApiRestController
 {
-    #[Route('/', name: 'auth_web_register', methods: ['GET'])]
+    #[Route('/', name: 'auth_web_register', methods: ['GET', 'POST'])]
     public function register(Request $request): Response
     {
         $form = $this->createForm(RegistrationFormType::class);
@@ -34,7 +34,7 @@ class RegistrationController extends ApiRestController
             $command = SendEmailConfirmationCommand::make($id->value());
             $this->commandBus->dispatch($command);
 
-            return $this->redirectToRoute('core_web_home');
+            return $this->redirectToRoute('auth_web_login');
         }
 
         return $this->render('@Auth/registration/register.html.twig', [
@@ -45,6 +45,9 @@ class RegistrationController extends ApiRestController
     #[Route('/verify/email', name: 'auth_web_verify_email', methods: ['GET'])]
     public function verifyUserEmail(Request $request): Response
     {
+        // if manual-auth
+        // https://symfonycasts.com/screencast/symfony-security/manual-auth#play
+
         $id = $request->get('id');
 
         if (null === $id) {
@@ -63,6 +66,6 @@ class RegistrationController extends ApiRestController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('core_web_home');
+        return $this->redirectToRoute('auth_web_login');
     }
 }

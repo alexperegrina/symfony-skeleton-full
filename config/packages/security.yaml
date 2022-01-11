@@ -35,21 +35,15 @@ security:
                 check_path: auth_api_login_json
 
         web_auth:
-            pattern: ^/web/auth
+            pattern: ^/web
             provider: auth_user_provider
-            stateless: true
             logout:
                 path: auth_web_logout
+#                target: auth_web_login
             form_login:
                 enable_csrf: true
                 login_path: auth_web_login
                 check_path: auth_web_login
-
-        web:
-            provider: auth_user_provider
-            stateless: true
-            pattern: ^/web
-            jwt: ~
 
         api:
             provider: auth_user_provider
@@ -82,6 +76,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
 #        - { path: ^/api/auth/login/jwt, roles: PUBLIC_ACCESS }
+        - { path: ^/web/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/web/auth/register, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/web, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
