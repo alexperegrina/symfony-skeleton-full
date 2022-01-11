@@ -32,6 +32,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/App/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+            ExampleBundle:
+                is_bundle: true
+                type: yml
+                dir: 'Resources/config/doctrine'
+                prefix: 'Example\Domain\Entity'
             CoreBundle:
                 is_bundle: true
                 type: yml

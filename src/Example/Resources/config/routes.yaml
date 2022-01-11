@@ -1,0 +1,3 @@
+example_health_check:
+  resource: Example\Interfaces\Controller\HealthCheckController
+  prefix: /health-check/

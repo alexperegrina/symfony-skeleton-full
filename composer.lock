@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "272c6339f0374a1cf5aa3057b985de6b",
+    "content-hash": "08df6bca61c476e9dc60a7865344bd34",
     "packages": [
         {
             "name": "alexperegrina/geotools",
@@ -2111,6 +2111,36 @@
                 }
             ],
             "time": "2021-10-11T09:18:27+00:00"
+        },
+        {
+            "name": "example/example",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./src/Example",
+                "reference": "f3edb648a14a3cee9807e9ebc9e9620f62f18a0b"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Example\\": "./"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Example\\Tests\\": "Tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alex Peregrina",
+                    "email": "alexperegrina@gmail.com"
+                }
+            ],
+            "description": "Example budle",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "friendsofphp/proxy-manager-lts",
@@ -12454,6 +12484,7 @@
         "alexperegrina/value-object": 20,
         "auth/auth": 20,
         "core/core": 20,
+        "example/example": 20,
         "gesdinet/jwt-refresh-token-bundle": 20
     },
     "prefer-stable": true,

@@ -1,0 +1,22 @@
+{
+    "name": "example/example",
+    "description": "Example budle",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Alex Peregrina",
+            "email": "alexperegrina@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Example\\": "./"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Example\\Tests\\": "Tests/"
+        }
+    },
+    "require": {}
+}
