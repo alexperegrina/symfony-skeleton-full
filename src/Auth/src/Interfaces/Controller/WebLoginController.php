@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class WebLoginController extends ApiRestController
 {
-    #[Route('/', name: 'auth_web_login')]
+    #[Route('/', name: 'auth_web_login', methods: ['GET'])]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // get the login error if there is one

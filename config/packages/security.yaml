@@ -17,20 +17,60 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            lazy: true
+
+        api_login_jwt:
+            pattern: ^/api/auth/login/jwt
             provider: auth_user_provider
+            stateless: true
+            json_login:
+                check_path: auth_api_login_jwt
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api_login_json:
+            pattern: ^/api/auth/login/json
+            provider: auth_user_provider
+            stateless: true
+            json_login:
+                check_path: auth_api_login_json
+
+        web_auth:
+            pattern: ^/web/auth
+            provider: auth_user_provider
+            stateless: true
             logout:
                 path: auth_web_logout
             form_login:
                 enable_csrf: true
-                # "login" is the name of the route created previously
                 login_path: auth_web_login
                 check_path: auth_web_login
-            json_login:
-                # api_login is a route we will create below
-                check_path: auth_api_login_json
-#                login_path: auth_api_login_json
+
+        web:
+            provider: auth_user_provider
+            stateless: true
+            pattern: ^/web
+            jwt: ~
+
+        api:
+            provider: auth_user_provider
+            stateless: true
+            pattern: ^/api
+            jwt: ~
+
+#        main:
+#            lazy: true
+#            provider: auth_user_provider
+#            logout:
+#                path: auth_web_logout
+#            form_login:
+#                enable_csrf: true
+#                # "login" is the name of the route created previously
+#                login_path: auth_web_login
+#                check_path: auth_web_login
+#            json_login:
+#                # api_login is a route we will create below
+#                check_path: auth_api_login_json
+##                login_path: auth_api_login_json
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -41,6 +81,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+#        - { path: ^/api/auth/login/jwt, roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/web, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

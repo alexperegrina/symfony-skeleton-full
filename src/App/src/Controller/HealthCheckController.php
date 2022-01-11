@@ -8,10 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HealthCheckController
 {
-    /**
-     * @Route("/ping", name="app_health_check_get_ping", methods={"GET"})
-     * @return JsonResponse
-     */
+    #[Route('/ping', name: 'app_health_check_get_ping', methods: ['GET'])]
     public function ping(): JsonResponse
     {
         return new JsonResponse('Ping');

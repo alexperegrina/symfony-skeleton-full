@@ -17,7 +17,7 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends ApiRestController
 {
-    #[Route('/', name: 'auth_web_register')]
+    #[Route('/', name: 'auth_web_register', methods: ['GET'])]
     public function register(Request $request): Response
     {
         $form = $this->createForm(RegistrationFormType::class);
@@ -42,7 +42,7 @@ class RegistrationController extends ApiRestController
         ]);
     }
 
-    #[Route('/verify/email', name: 'auth_web_verify_email')]
+    #[Route('/verify/email', name: 'auth_web_verify_email', methods: ['GET'])]
     public function verifyUserEmail(Request $request): Response
     {
         $id = $request->get('id');

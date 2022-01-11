@@ -14,11 +14,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends ApiRestController
 {
-    /**
-     * @Route("/test", name="core_api_get_test", methods={"GET"})
-     * @return JsonResponse
-     */
+    #[Route('/test', name: 'core_api_get_test', methods: ['GET'])]
     public function test(): JsonResponse
+    {
+        $country = new Country(
+            new StringVO('España'),
+            CountryCode::byName(CountryCode::ES)
+        );
+
+        return $this->buildResponseForGetRestOk(RestResponseDataTransformer::toRestResponse(CountryDtoResponse::make($country)));
+    }
+
+    #[Route('/private', name: 'core_api_private', methods: ['GET'])]
+    public function private(): JsonResponse
     {
         $country = new Country(
             new StringVO('España'),
