@@ -20,6 +20,8 @@ security:
         main:
             lazy: true
             provider: auth_user_provider
+            logout:
+                path: auth_web_logout
             form_login:
                 enable_csrf: true
                 # "login" is the name of the route created previously

@@ -5,3 +5,7 @@ auth_web_register:
 auth_web_login:
   resource: Auth\Interfaces\Controller\WebLoginController
   prefix: /login/
+
+auth_web_logout:
+  path: /logout
+  methods: GET
