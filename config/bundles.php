@@ -21,4 +21,5 @@ return [
     Example\ExampleBundle::class => ['all' => true],
     Landing\LandingBundle::class => ['all' => true],
     Admin\AdminBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 ];
