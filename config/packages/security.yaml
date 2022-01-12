@@ -50,12 +50,24 @@ security:
                 enable_csrf: true
                 login_path: auth_web_login
                 check_path: auth_web_login
+                default_target_path:  core_web_home
 
         api:
             provider: auth_user_provider
             stateless: true
             pattern: ^/api
             jwt: ~
+
+        admin:
+            pattern: ^/admin
+            provider: auth_user_provider
+            logout:
+                path: admin_auth_logout
+            form_login:
+                enable_csrf: true
+                login_path: admin_auth_login
+                check_path: admin_auth_login
+                default_target_path:  admin_home
 
 #        main:
 #            lazy: true
@@ -87,6 +99,8 @@ security:
         - { path: ^/api/auth/token/refresh, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/web, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

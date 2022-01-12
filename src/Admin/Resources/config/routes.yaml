@@ -1,3 +1,11 @@
 admin_health_check:
   resource: Admin\Interfaces\Controller\HealthCheckController
   prefix: /health-check/
+
+auth:
+  resource: Admin\Interfaces\Controller\AuthController
+  prefix: /auth/
+
+admin:
+  resource: Admin\Interfaces\Controller\AdminController
+  prefix: /
