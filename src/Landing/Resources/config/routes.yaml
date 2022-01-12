@@ -1,3 +1,11 @@
 landing_health_check:
   resource: Landing\Interfaces\Controller\HealthCheckController
   prefix: /health-check/
+
+auth:
+  resource: Landing\Interfaces\Controller\AuthController
+  prefix: /auth/
+
+landing:
+  resource: Landing\Interfaces\Controller\LandingController
+  prefix: /

@@ -63,11 +63,24 @@ security:
             provider: auth_user_provider
             logout:
                 path: admin_auth_logout
+                target: admin_auth_login
             form_login:
                 enable_csrf: true
                 login_path: admin_auth_login
                 check_path: admin_auth_login
                 default_target_path:  admin_home
+
+        landing:
+            pattern: ^/landing
+            provider: auth_user_provider
+            logout:
+                path: landing_auth_logout
+                target: landing_home
+            form_login:
+                enable_csrf: true
+                login_path: landing_auth_login
+                check_path: landing_auth_login
+                default_target_path: landing_profile
 
 #        main:
 #            lazy: true
@@ -101,6 +114,8 @@ security:
         - { path: ^/web, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin/auth/login, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/landing/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/landing, roles: PUBLIC_ACCESS }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
