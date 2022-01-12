@@ -22,11 +22,13 @@ Encore
      */
     .addEntry('app', './src/App/assets/app.js')
     .addEntry('admin', './src/Admin/Resources/assets/admin.js')
+    .addEntry('sb-admin', './src/Admin/Resources/assets/sb-admin/sb-admin.js')
     .addEntry('landing', './src/Landing/Resources/assets/landing.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./src/App/assets/controllers.json')
     .enableStimulusBridge('./src/Admin/Resources/assets/controllers.json')
+    .enableStimulusBridge('./src/Admin/Resources/assets/sb-admin/controllers.json')
     .enableStimulusBridge('./src/Landing/Resources/assets/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
@@ -73,7 +75,12 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
+
+    .copyFiles({
+        from: './src/Admin/Resources/assets/sb-admin/images',
+        to: 'images/[path][name].[ext]',
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
