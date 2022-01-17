@@ -17,4 +17,10 @@ class AdminController extends ApiRestController
         return $this->render('@Admin/sb-admin/base.html.twig');
 //        return $this->render('@Admin/base.html.twig');
     }
+
+    #[Route('/dashboard', name: 'admin_dashboard', methods: ['GET'])]
+    public function dashboard(): Response
+    {
+        return $this->render('@Admin/sb-admin/page/dashboard.html.twig');
+    }
 }

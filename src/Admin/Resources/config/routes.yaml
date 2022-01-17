@@ -9,3 +9,7 @@ auth:
 admin:
   resource: Admin\Interfaces\Controller\AdminController
   prefix: /
+
+page_sample:
+  resource: Admin\Interfaces\Controller\AdminPageSampleController
+  prefix: /page/sample/

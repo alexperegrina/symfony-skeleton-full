@@ -17,8 +17,9 @@
         {% endblock %}
 
     </head>
-    <body>
-        {% block body %}
+
+    {% block body %}
+    <body id="page-top">
             <!-- Page Wrapper -->
             <div id="wrapper">
 
@@ -38,7 +39,22 @@
 
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-                            {{ include('@Admin/sb-admin/page.html.twig') }}
+                            {% block page %}
+                                <!-- Page Heading -->
+                                {% block page_head %}
+                                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                        <h1 class="h3 mb-0 text-gray-800">{% block page_head_title %}Skeleton{% endblock %}</h1>
+                                        {% block page_head_button_action %}
+                                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                                <i class="fas fa-download fa-sm text-white-50"></i>
+                                                Generate Report
+                                            </a>
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+                                {% block page_content %}
+                                {% endblock %}
+                            {% endblock %}
                         </div>
                         <!-- /.container-fluid -->
 
@@ -63,10 +79,11 @@
             <!-- Logout Modal-->
             {{ include('@Admin/sb-admin/modal/logout.html.twig') }}
 
-        {% endblock %}
+
 
         {% block javascripts %}
             {{ encore_entry_script_tags('sb-admin') }}
         {% endblock %}
     </body>
+    {% endblock %}
 </html>
