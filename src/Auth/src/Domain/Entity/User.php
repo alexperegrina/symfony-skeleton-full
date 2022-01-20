@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Auth\Domain\Entity;
 
 use AlexPeregrina\ValueObject\Domain\Identity\Uuid;
+use AlexPeregrina\ValueObject\Domain\User\Gender;
+use AlexPeregrina\ValueObject\Domain\User\Name;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -20,6 +22,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     private array $roles = [];
     private bool $isVerified = false;
+    private ?Name $name = null;
+    private ?Gender $gender = null;
 
     public function __construct(
         private Uuid $id,
@@ -88,5 +92,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->isVerified = $isVerified;
         return $this;
+    }
+
+    public function name(): ?Name
+    {
+        return $this->name;
+    }
+
+    public function setName(Name $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function gender(): ?Gender
+    {
+        return $this->gender;
+    }
+
+    public function setGender(Gender $gender): void
+    {
+        $this->gender = $gender;
     }
 }

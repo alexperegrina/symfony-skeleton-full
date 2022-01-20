@@ -14,6 +14,8 @@ doctrine:
 
         types:
             Uuid: AlexPeregrina\ValueObject\Infrastructure\Repository\Doctrine\Type\UuidType
+            Name: AlexPeregrina\ValueObject\Infrastructure\Repository\Doctrine\Type\User\NameType
+            Gender: AlexPeregrina\ValueObject\Infrastructure\Repository\Doctrine\Type\User\GenderType
 
     orm:
         auto_generate_proxy_classes: true
