@@ -14,12 +14,13 @@ class LandingController extends ApiRestController
     #[Route('/', name: 'landing_home', methods: ['GET'])]
     public function home(): Response
     {
-        return $this->render('@Landing/base.html.twig');
+        return $this->render('@Landing/grayscale/base.html.twig');
+//        return $this->render('@Landing/base.html.twig');
     }
 
-    #[Route('/profile', name: 'landing_profile', methods: ['GET'])]
-    public function profile(#[CurrentUser] ?User $user): Response
-    {
-        return $this->render('@Landing/base.html.twig');
-    }
+//    #[Route('/profile', name: 'landing_profile', methods: ['GET'])]
+//    public function profile(#[CurrentUser] ?User $user): Response
+//    {
+//        return $this->render('@Landing/base.html.twig');
+//    }
 }

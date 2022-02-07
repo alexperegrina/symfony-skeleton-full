@@ -11,6 +11,7 @@
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.47.0",
         "sass-loader": "^12.4.0",
+        "startbootstrap-grayscale": "^7.0.4",
         "startbootstrap-sb-admin-2": "^4.1.4",
         "webpack-notifier": "^1.6.0"
     },
