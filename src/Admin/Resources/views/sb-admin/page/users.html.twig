@@ -4,5 +4,37 @@
 {% block page_head_button_action %}{% endblock %}
 
 {% block page_content %}
-    <h1 class="h3 mb-4 text-gray-800">User Content</h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">List Users</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>xx</td>
+                            <td>xx</td>
+                            <td>xx</td>
+                            <td>xx</td>
+                            <td>
+                                <a href="#" class="btn btn-danger btn-circle">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
