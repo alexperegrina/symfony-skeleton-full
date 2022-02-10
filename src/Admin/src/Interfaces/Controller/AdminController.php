@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Admin\Interfaces\Controller;
 
 use Admin\Interfaces\Parameters\AdminParameters;
+use Auth\Application\Command\DeleteUser\DeleteUserCommand;
 use Auth\Application\Query\FindAllUsers\FindAllUsersQuery;
 use Auth\Domain\Entity\User;
 use Core\Interfaces\Controller\ApiRestController;
@@ -32,5 +33,13 @@ class AdminController extends ApiRestController
         $users = $this->queryBus->dispatch($query);
 
         return $this->render('@Admin/sb-admin/page/user/list.html.twig', AdminParameters::users($user, $users));
+    }
+
+    #[Route('/user/{id}', name: 'admin_user_delete', requirements: ['id' => '%routing.uuid%'], methods: ['GET'])]
+    public function userDelete(#[CurrentUser] User $user, string $id): Response
+    {
+        $command = DeleteUserCommand::make($id);
+        $this->commandBus->dispatch($command);
+        return $this->redirectToRoute('admin_users');
     }
 }

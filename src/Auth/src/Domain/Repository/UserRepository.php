@@ -32,9 +32,4 @@ interface UserRepository
      * @return User[]
      */
     public function findByRole(string $role): array;
-
-    /**
-     * @return User[]
-     */
-    public function findByRoleAndEnabled(string $role): array;
 }

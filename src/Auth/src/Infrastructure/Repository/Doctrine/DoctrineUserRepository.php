@@ -88,20 +88,10 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
             ->getResult();
     }
 
-    public function findByRoleAndEnabled(string $role): array
-    {
-        $role = mb_strtoupper($role);
-
-        return $this->createQueryBuilder('u')
-            ->andWhere('JSON_CONTAINS(u.roles, :role) = 1')
-            ->andWhere('u.enabled = 1')
-            ->setParameter('role', '"'.$role.'"')
-            ->getQuery()
-            ->getResult();
-    }
-
     public function findById(Uuid $id): User
     {
+        $this->_em->getFilters()->disable('soft_deleteable');
+
         /** @var User $user */
         $user = $this->_em->getRepository(User::class)->findOneBy(['id' => $id]);
 
