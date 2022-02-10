@@ -17,7 +17,6 @@ class AdminController extends ApiRestController
     public function home(#[CurrentUser] User $user): Response
     {
         return $this->render('@Admin/sb-admin/base.html.twig', AdminParameters::home($user));
-//        return $this->render('@Admin/base.html.twig');
     }
 
     #[Route('/dashboard', name: 'admin_dashboard', methods: ['GET'])]
