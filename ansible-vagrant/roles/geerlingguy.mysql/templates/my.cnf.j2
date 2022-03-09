@@ -18,6 +18,9 @@ skip-name-resolve
 sql_mode = {{ mysql_sql_mode }}
 {% endif %}
 
+character-set-server = {{ mysql_character }}
+collation-server = {{ uft8mb4_unicode_ci }}
+
 # Logging configuration.
 {% if mysql_log_error == 'syslog' or mysql_log == 'syslog' %}
 syslog

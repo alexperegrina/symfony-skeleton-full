@@ -3,6 +3,6 @@
 
 mysql_databases:
    - name: skeleton
-     collation: utf8_general_ci
-     encoding: utf8
-     replicate: 1
+#     collation: utf8_general_ci
+#     encoding: utf8
+#     replicate: 1

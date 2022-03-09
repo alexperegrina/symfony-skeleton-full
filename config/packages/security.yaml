@@ -75,12 +75,12 @@ security:
             provider: auth_user_provider
             logout:
                 path: landing_auth_logout
-                target: landing_home
+                target: landing_auth_login
             form_login:
                 enable_csrf: true
                 login_path: landing_auth_login
                 check_path: landing_auth_login
-                default_target_path: landing_profile
+                default_target_path: landing_home
 
 #        main:
 #            lazy: true

@@ -21,16 +21,16 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './src/App/assets/app.js')
-    .addEntry('admin', './src/Admin/Resources/assets/admin.js')
+    .addEntry('admin', './src/Admin/Resources/assets/symfony-sample/admin.js')
     .addEntry('sb-admin', './src/Admin/Resources/assets/sb-admin/sb-admin.js')
-    .addEntry('landing', './src/Landing/Resources/assets/landing.js')
+    .addEntry('landing', './src/Landing/Resources/assets/symfony-sample/landing.js')
     .addEntry('grayscale', './src/Landing/Resources/assets/grayscale/grayscale.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./src/App/assets/controllers.json')
-    .enableStimulusBridge('./src/Admin/Resources/assets/controllers.json')
+    .enableStimulusBridge('./src/Admin/Resources/assets/symfony-sample/controllers.json')
     .enableStimulusBridge('./src/Admin/Resources/assets/sb-admin/controllers.json')
-    .enableStimulusBridge('./src/Landing/Resources/assets/controllers.json')
+    .enableStimulusBridge('./src/Landing/Resources/assets/symfony-sample/controllers.json')
     .enableStimulusBridge('./src/Landing/Resources/assets/grayscale/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -20,7 +20,7 @@ class AuthController extends ApiRestController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('@Landing/auth/login.html.twig', [
+        return $this->render('@Landing/grayscale/auth/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
         ]);

@@ -45,6 +45,8 @@ mysql_sql_mode: ''
 # The following variables have a default value depending on operating system.
 # mysql_pid_file: /var/run/mysqld/mysqld.pid
 # mysql_socket: /var/lib/mysql/mysql.sock
+mysql_character: uft8mb4
+mysql_collation: uft8mb4_unicode_ci
 
 # Log file settings.
 mysql_log_file_group: mysql
