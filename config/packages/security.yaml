@@ -115,7 +115,7 @@ security:
         - { path: ^/admin/auth/login, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/landing/auth/login, roles: PUBLIC_ACCESS }
-        - { path: ^/landing/private, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/landing/private, roles: ROLE_LANDING }
         - { path: ^/landing, roles: PUBLIC_ACCESS }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

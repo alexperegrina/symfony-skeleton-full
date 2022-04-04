@@ -4,10 +4,12 @@ declare(strict_types=1);
 namespace Landing\Interfaces\Controller;
 
 use AlexPeregrina\ValueObject\Domain\Identity\Uuid;
+use Auth\Application\Command\AddRole\AddRoleCommand;
 use Auth\Application\Command\CreateUser\CreateUserCommand;
 use Auth\Application\Command\SendEmailConfirmation\SendEmailConfirmationCommand;
 use Auth\Application\Command\SetName\SetNameCommand;
 use Auth\Application\Form\SignUpForm;
+use Auth\Domain\ValueObject\Role;
 use Core\Interfaces\Controller\ApiRestController;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,9 +58,10 @@ class AuthController extends ApiRestController
             $email = $form->get('email')->getData();
             $password = $form->get('password')->getData();
 
-//            dd($id, $name['first'], $name['last'], $email, $password);
-
             $command = CreateUserCommand::make($id->value(), $email, $password);
+            $this->commandBus->dispatch($command);
+
+            $command = AddRoleCommand::make($id->value(), Role::LANDING);
             $this->commandBus->dispatch($command);
 
             $lastName = explode(' ', $name['last']);
@@ -73,12 +76,6 @@ class AuthController extends ApiRestController
 
             return $this->redirectToRoute('landing_auth_login');
         }
-
-//        return $this->render('@Landing/grayscale/auth/sign-up.html.twig', [
-//            'signUpForm' => $form->createView(),
-////            'last_username' => $lastUsername,
-////            'error' => $error,
-//        ]);
 
         return $this->renderForm('@Landing/grayscale/auth/sign-up.html.twig', [
             'signUpForm' => $form,
