@@ -1,0 +1,23 @@
+@import "~startbootstrap-sb-admin-2/scss/sb-admin-2";
+
+form.sign-up{
+  input {
+    @extend .form-control;
+    font-size: 0.8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+  }
+
+  button {
+    @extend .btn-form;
+    //font-size: 0.8rem;
+    //border-radius: 10rem;
+    //padding: 0.75rem 1rem;
+  }
+}
+
+.btn-form {
+  font-size: 0.8rem;
+  border-radius: 10rem;
+  padding: 0.75rem 1rem;
+}

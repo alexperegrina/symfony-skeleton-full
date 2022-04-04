@@ -1,0 +1,47 @@
+{% extends "@Landing/grayscale/base.html.twig" %}
+
+{% block name_row %}
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{- form_widget(form.first) -}}
+            {{- form_help(form.first) -}}
+            {{- form_errors(form.first) -}}
+        </div>
+        <div class="col-sm-6">
+            {{- form_widget(form.last) -}}
+            {{- form_help(form.last) -}}
+            {{- form_errors(form.last) -}}
+        </div>
+    </div>
+{% endblock %}
+
+{% block email_row %}
+    <div class="form-group">
+        {{- form_widget(form) -}}
+        {{- form_help(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{% endblock %}
+
+{% block password_row %}
+    <div class="form-group">
+        {{- form_widget(form) -}}
+        {{- form_help(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{% endblock %}
+
+{% block repeated_row %}
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{- form_widget(form.children.first) -}}
+            {{- form_help(form.children.first) -}}
+            {{- form_errors(form.children.first) -}}
+        </div>
+        <div class="col-sm-6">
+            {{- form_widget(form.children.second) -}}
+            {{- form_help(form.children.second) -}}
+            {{- form_errors(form.children.second) -}}
+        </div>
+    </div>
+{% endblock %}

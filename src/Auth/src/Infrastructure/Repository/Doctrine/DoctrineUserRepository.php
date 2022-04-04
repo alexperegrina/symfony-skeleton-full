@@ -90,7 +90,9 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
 
     public function findById(Uuid $id): User
     {
-        $this->_em->getFilters()->disable('soft_deleteable');
+        if ($this->_em->getFilters()->isEnabled('soft_deleteable')) {
+            $this->_em->getFilters()->disable('soft_deleteable');
+        }
 
         /** @var User $user */
         $user = $this->_em->getRepository(User::class)->findOneBy(['id' => $id]);

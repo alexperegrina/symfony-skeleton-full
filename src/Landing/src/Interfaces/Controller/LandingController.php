@@ -23,4 +23,10 @@ class LandingController extends ApiRestController
 //    {
 //        return $this->render('@Landing/base.html.twig');
 //    }
+
+    #[Route('/private', name: 'landing_private_home', methods: ['GET'])]
+    public function privateHome(#[CurrentUser] User $user): Response
+    {
+        return $this->render('@Landing/grayscale/view/private/base.html.twig');
+    }
 }

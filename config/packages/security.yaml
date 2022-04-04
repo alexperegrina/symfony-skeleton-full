@@ -80,7 +80,7 @@ security:
                 enable_csrf: true
                 login_path: landing_auth_login
                 check_path: landing_auth_login
-                default_target_path: landing_home
+                default_target_path: landing_private_home
 
 #        main:
 #            lazy: true
@@ -115,6 +115,7 @@ security:
         - { path: ^/admin/auth/login, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/landing/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/landing/private, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/landing, roles: PUBLIC_ACCESS }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
