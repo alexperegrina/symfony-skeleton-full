@@ -6,6 +6,7 @@ namespace Auth\Domain\Entity;
 use AlexPeregrina\ValueObject\Domain\Identity\Uuid;
 use AlexPeregrina\ValueObject\Domain\User\Gender;
 use AlexPeregrina\ValueObject\Domain\User\Name;
+use Auth\Domain\ValueObject\Role;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -61,7 +62,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+//        $roles[] = 'ROLE_USER';
+        $roles[] = Role::USER;
 
         return array_unique($roles);
     }
@@ -69,6 +71,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+        return $this;
+    }
+
+    public function addRole(Role $role): self
+    {
+        $this->roles[] = $role->value();
+        $this->roles = array_unique($this->roles);
         return $this;
     }
 
