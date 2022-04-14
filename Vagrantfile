@@ -12,16 +12,16 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define "skeleton.local" do |radar|
-      radar.vm.provision "ansible" do |ansible|
-        ansible.inventory_path = "ansible-vagrant/inventories/local/hosts"
-#         ansible.verbose = 'vvv'
-        ansible.playbook = "ansible-vagrant/playbook.yml"
-        ansible.limit = "all"
-      end
+        radar.vm.provision "ansible" do |ansible|
+            ansible.inventory_path = "ansible-vagrant/inventories/local/hosts"
+            ansible.verbose = 'vvv'
+            ansible.playbook = "ansible-vagrant/playbook.yml"
+            ansible.limit = "all"
+        end
 
-      config.vm.provider "virtualbox" do |v|
-        v.memory = 4096
-        v.name = "skeleton.local"
-      end
+        config.vm.provider "virtualbox" do |v|
+            v.memory = 4096
+            v.name = "skeleton.local"
+        end
     end
 end
