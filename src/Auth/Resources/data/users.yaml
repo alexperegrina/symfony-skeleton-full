@@ -1,0 +1,12 @@
+- id: e2beb414-9c65-40db-95b3-502f37973ed8
+  email: system@skeleton.com
+  password: '123456'
+  roles:
+    - ROLE_ADMIN
+    - ROLE_SUPER_ADMIN
+
+- id: d398a9b5-cb0d-450d-8e8e-0692a81aa951
+  email: landing@skeleton.com
+  password: '123456'
+  roles:
+    - ROLE_LANDING
