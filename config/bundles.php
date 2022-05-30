@@ -22,4 +22,5 @@ return [
     Landing\LandingBundle::class => ['all' => true],
     Admin\AdminBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
 ];
