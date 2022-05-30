@@ -25,3 +25,7 @@ symfony server:start
 ```
 bin/console lexik:jwt:generate-keypair
 ```
+
+## URL
+http://skeleton.local/landing/
+http://skeleton.local/admin/
