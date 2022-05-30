@@ -47,7 +47,7 @@ class SendEmailConfirmationService
     private function generateEmail(VerifyEmailSignatureComponents $signatureComponents, User $user): TemplatedEmail
     {
         $email = new TemplatedEmail();
-        $email->from(new Address('skeleton@skeleton.com', 'Skeleton CEO'));
+        $email->from(new Address('system@skeleton.com', 'Skeleton CEO'));
         $email->to($user->email());
         $email->subject('Please Confirm your Email');
         $email->htmlTemplate('@Auth/registration/confirmation_email.html.twig');
