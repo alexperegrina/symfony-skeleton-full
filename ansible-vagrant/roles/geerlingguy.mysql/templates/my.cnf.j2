@@ -4,6 +4,10 @@
 #password = your_password
 port = {{ mysql_port }}
 socket = {{ mysql_socket }}
+default-character-set = {{ mysql_character }}
+
+[mysql]
+default-character-set = {{ mysql_character }}
 
 [mysqld]
 port = {{ mysql_port }}
@@ -19,7 +23,7 @@ sql_mode = {{ mysql_sql_mode }}
 {% endif %}
 
 character-set-server = {{ mysql_character }}
-collation-server = {{ uft8mb4_unicode_ci }}
+collation-server = {{ mysql_collation }}
 
 # Logging configuration.
 {% if mysql_log_error == 'syslog' or mysql_log == 'syslog' %}
