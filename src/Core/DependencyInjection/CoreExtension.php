@@ -14,6 +14,17 @@ class CoreExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
+
+        $this->passConfigToParameters($configs, $container);
+    }
+
+    private function passConfigToParameters(array $configs, ContainerBuilder $container): void
+    {
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $alias = $this->getAlias().'.validator.schema';
+        $container->setParameter($alias, $config['validator']['schema']);
     }
 
     public function getAlias(): string

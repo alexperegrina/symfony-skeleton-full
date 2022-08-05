@@ -89,3 +89,10 @@ services:
   Core\Infrastructure\Repository\Doctrine\:
     resource: '../../src/Infrastructure/Repository/Doctrine/*'
     tags: ['doctrine.repository_service']
+
+  # --- VALIDATOR
+  # ---
+  Core\Domain\Validator\SchemaValidator:
+    class: Core\Infrastructure\Validator\OpisSchemaValidator
+    arguments:
+      $config: '%core.validator.schema%'

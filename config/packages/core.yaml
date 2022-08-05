@@ -1,0 +1,8 @@
+core:
+  validator:
+    schema:
+      declare:
+        - path: '@CoreBundle/Resources/schema/'
+          prefix: 'https://skeleton.com/Core/'
+#      format:
+#        - Core\Infrastructure\FormatValidator\ValueObject\XXX

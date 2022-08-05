@@ -12,6 +12,39 @@ class CoreConfiguration implements ConfigurationInterface
 
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        return new TreeBuilder(self::ALIAS);
+        $treeBuilder = new TreeBuilder(self::ALIAS);
+        $rootNode = $treeBuilder->getRootNode();
+
+        $rootNode->children()
+            ->append($this->nodeValidator())
+        ->end();
+
+        return $treeBuilder;
+    }
+
+    protected function nodeValidator()
+    {
+        $treeBuilder = new TreeBuilder('validator');
+        $node = $treeBuilder->getRootNode();
+        $node
+            ->children()
+                ->arrayNode('schema')
+                ->children()
+                    ->arrayNode('declare')
+                        ->arrayPrototype()
+                            ->children()
+                                ->scalarNode('path')->isRequired()->end()
+                                ->scalarNode('prefix')->isRequired()->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->arrayNode('format')
+                        ->scalarPrototype()->end()
+                    ->end()
+                ->end()
+                ->end()
+            ->end();
+
+        return $node;
     }
 }
