@@ -96,3 +96,9 @@ services:
     class: Core\Infrastructure\Validator\OpisSchemaValidator
     arguments:
       $config: '%core.validator.schema%'
+
+  # --- EVENT LISTENER
+  # ---
+  Core\Infrastructure\EventListener\RequestValidatorListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.controller_arguments }
